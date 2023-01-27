@@ -15,8 +15,24 @@
     <div id="app">
         <div class="container">
             <div class="row">
-                <div class="col">Cource Information {{ course_list }}</div>
-                <div class="col">Courses I Plan to Take</div>
+                <div class="col">
+                    <h2>Cource Information</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="course in course_list">
+                            <div class="row">
+                                <div class="col">{{ course['Course title'] }}</div>
+                                <div class="col">{{ course['Credits'] }} Credits</div>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ course['Instructor'] }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col">{{ course['Curriculum Number'] }}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col"><h2>Courses I Plan to Take</h2></div>
             </div>
             <div class="row">Result</div>
         </div>
@@ -29,7 +45,8 @@
         const app = createApp({
             data() {
                 return {
-                    course_list: []
+                    course_list: [],
+                    selected_courses: []
                 }
             },
             methods: {
