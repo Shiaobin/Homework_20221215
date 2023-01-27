@@ -12,46 +12,44 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h2>Cource Information</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="course in courseList" @click="selectCourse(course)">
-                            <div class="row">
-                                <div class="col">{{ course['Course title'] }}</div>
-                                <div class="col">{{ course['Credits'] }} Credits</div>
-                            </div>
-                            <div class="row">
-                                <div class="col">{{ course['Instructor'] }}</div>
-                            </div>
-                            <div class="row">
-                                <div class="col">{{ course['Curriculum Number'] }}</div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h2>Courses I Plan to Take</h2>
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="course in selectedCourses">
-                            <div class="row">
-                                <div class="col">{{ course['Course title'] }}</div>
-                                <div class="col">{{ course['Credits'] }} Credits</div>
-                            </div>
-                            <div class="row">
-                                <div class="col">{{ course['Instructor'] }}</div>
-                            </div>
-                            <div class="row">
-                                <div class="col">{{ course['Curriculum Number'] }}</div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Course Information</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="course in courseList" @click="selectCourse(course)">
+                        <div class="row">
+                            <div class="col">{{ course['Course title'] }}</div>
+                            <div class="col">{{ course['Credits'] }} Credits</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">{{ course['Instructor'] }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">{{ course['Curriculum Number'] }}</div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="row">Result</div>
+            <div class="col">
+                <h2>Courses I Plan to Take</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="course in selectedCourses">
+                        <div class="row">
+                            <div class="col">{{ course['Course title'] }}</div>
+                            <div class="col">{{ course['Credits'] }} Credits</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">{{ course['Instructor'] }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">{{ course['Curriculum Number'] }}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <div class="row">Result</div>
     </div>
 
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
