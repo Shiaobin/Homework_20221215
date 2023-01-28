@@ -18,7 +18,9 @@
             <div class="col">
                 <h2 class="text-center">Course Information</h2>
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="course in courseList" @click="selectCourse(course)">
+                    <li class="list-group-item" v-for="course in courseList"
+                        v-bind:class="isSelected(course) ? 'bg-secondary text-white' : ''"
+                        @click="selectCourse(course)">
                         <div class="row">
                             <div class="col fs-5">{{ course['Course title'] }}</div>
                             <div class="col text-end">{{ course['Credits'] }} Credits</div>
@@ -61,6 +63,9 @@
                 }
             },
             methods: {
+                isSelected(course) {
+                    return this.selectedCourses.includes(course)
+                },
                 selectCourse(course) {
                     if (!this.selectedCourses.includes(course)) {
                         this.selectedCourses.push(course)
