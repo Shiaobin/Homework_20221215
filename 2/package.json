@@ -1,0 +1,16 @@
+{
+  "name": "parse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "parse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@json2csv/plainjs": "^6.1.2",
+    "fs": "^0.0.1-security"
+  },
+  "type": "module"
+}
