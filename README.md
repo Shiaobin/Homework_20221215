@@ -1,12 +1,13 @@
 # Homework_20221215
 
+## Question
 1. 實作題 (這題沒有數學解，直接模擬即可)
 
-    請用 javascript 寫一隻小程式 Clockwise.js，輸入數字 n 輸出 nxn，依順時針由外到    內填入所有數字。其中 n <= 10。
+    請用 javascript 寫一隻小程式 Clockwise.js，輸入數字 n 輸出 nxn，依順時針由外到內填入所有數字。其中 n <= 10。
 
     範例一
 
-    執行：node Clockwise.js 5
+    執行：`node Clockwise.js 5`
 
     輸出：(同一行兩個數字間以一個空白分隔)
     ```
@@ -19,7 +20,7 @@
 
     範例二
 
-    執行：node Clockwise.js 4
+    執行：`node Clockwise.js 4`
 
     輸出：
     ```
@@ -29,8 +30,7 @@
     10 9 8 7
     ```
 
-2. 實作題，請用 javascript 寫一隻小程式 parse.js，輸入 raw_data.json，輸出 clean_data.csv
-。檔名固定，總學生數數量 <= 10，每位學生資料齊全，每科必有成績。
+2. 實作題，請用 javascript 寫一隻小程式 parse.js，輸入 raw_data.json，輸出 clean_data.csv。檔名固定，總學生數數量 <= 10，每位學生資料齊全，每科必有成績。
 
     附檔 raw_data.json：
     ```json
@@ -58,3 +58,32 @@
 
     ![](https://i.imgur.com/c4gGq8B.jpg)
     ![](https://i.imgur.com/xw4AN54.jpg)
+
+## Answer
+
+1. 執行指令
+
+    ```
+    cd 1
+    node Clockwise.js 5
+    ```
+
+    `5` 是方陣大小，可以改成其他數字。
+
+2. 執行指令
+
+    ```
+    cd 2
+    node parse.js
+    ```
+
+    結果會輸出在 `data/clean_data.csv`
+
+3. 執行指令
+
+    ```
+    cd 3/backend
+    node backend.js
+    ```
+
+    然後以網頁瀏覽器開啟 `3/fronted/fronted.htm`
