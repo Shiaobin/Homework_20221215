@@ -36,6 +36,11 @@
             </div>
             <div class="col">
                 <h2 class="text-center">Courses I Plan to Take</h2>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary float-end" @click="outputResult">Done</button>
+                    </div>
+                </div>
                 <ul class="list-group">
                     <li class="list-group-item" v-for="(course, index) in selectedCourses">
                         <div class="row d-flex align-items-center">
@@ -48,7 +53,11 @@
                 </ul>
             </div>
         </div>
-        <div class="row">Result</div>
+        <div class="row">
+            <div class="col fs-4">
+                Result: {{ result }}
+            </div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
@@ -59,7 +68,8 @@
             data() {
                 return {
                     courseList: [],
-                    selectedCourses: []
+                    selectedCourses: [],
+                    result: []
                 }
             },
             methods: {
@@ -73,6 +83,12 @@
                 },
                 deleteCourse(index) {
                     this.selectedCourses.splice(index, 1)
+                },
+                outputResult() {
+                    this.result = []
+                    this.selectedCourses.forEach((course) => {
+                        this.result.push(course['Course title'])
+                    })
                 }
             },
             mounted() {
