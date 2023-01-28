@@ -41,16 +41,20 @@
                         <button type="button" class="btn btn-primary float-end" @click="outputResult">Done</button>
                     </div>
                 </div>
-                <ul class="list-group">
-                    <li class="list-group-item" v-for="(course, index) in selectedCourses">
-                        <div class="row d-flex align-items-center">
-                            <div class="col fs-4"><i class="bi bi-grip-horizontal"></i></div>
-                            <div class="col fs-5 bg-secondary text-white text-center">{{ index + 1 }}</div>
-                            <div class="col-9 fs-5">{{ course['Course title'] }}</div>
-                            <div class="col fs-4" @click="deleteCourse(index)"><i class="bi bi-trash"></i></div>
+                <dragable v-model="selectedCourses" @start="drag=true" @end="drag=false" item-key="Curriculum Number">
+                    <template #item="{element, index}">
+                        <div class="list-group">
+                            <div class="list-group-item">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col fs-4"><i class="bi bi-grip-horizontal"></i></div>
+                                    <div class="col fs-5 bg-secondary text-white text-center">{{ index + 1 }}</div>
+                                    <div class="col-9 fs-5">{{ element['Course title'] }}</div>
+                                    <div class="col fs-4" @click="deleteCourse(index)"><i class="bi bi-trash"></i></div>
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                </ul>
+                    </template>
+                </dragable>
             </div>
         </div>
         <div class="row">
@@ -63,11 +67,15 @@
         import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
         const app = createApp({
+            components: {
+                dragable: window['vuedraggable']
+            },
             data() {
                 return {
                     courseList: [],
                     selectedCourses: [],
-                    result: []
+                    result: [],
+                    drag: false
                 }
             },
             methods: {
@@ -103,6 +111,9 @@
         })
         app.mount('#app')
     </script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js"></script>
+    <script src="./js/vuedraggable.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
