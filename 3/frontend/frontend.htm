@@ -40,7 +40,7 @@
                             <div class="col fs-4"><i class="bi bi-grip-horizontal"></i></div>
                             <div class="col fs-5 bg-secondary text-white text-center">{{ index + 1 }}</div>
                             <div class="col-9 fs-5">{{ course['Course title'] }}</div>
-                            <div class="col fs-4"><i class="bi bi-trash"></i></div>
+                            <div class="col fs-4" @click="deleteCourse(index)"><i class="bi bi-trash"></i></div>
                         </div>
                     </li>
                 </ul>
@@ -65,6 +65,9 @@
                     if (!this.selectedCourses.includes(course)) {
                         this.selectedCourses.push(course)
                     }
+                },
+                deleteCourse(index) {
+                    this.selectedCourses.splice(index, 1)
                 }
             },
             mounted() {
